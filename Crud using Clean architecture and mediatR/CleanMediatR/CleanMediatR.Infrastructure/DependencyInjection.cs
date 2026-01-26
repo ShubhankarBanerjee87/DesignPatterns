@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using CleanMediatR.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CleanMediatR.Infrastructure
 {
@@ -6,6 +8,10 @@ namespace CleanMediatR.Infrastructure
     {
         public static IServiceCollection AddInfrastructureDependency(this IServiceCollection services)
         {
+            services.AddDbContext<CleanMediatRDbContext>(options => 
+                options.UseSqlServer("connection string goes here")
+            );
+
             return services;
         }
 
