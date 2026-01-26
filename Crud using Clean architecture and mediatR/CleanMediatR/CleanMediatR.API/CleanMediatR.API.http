@@ -1,0 +1,6 @@
+@CleanMediatR.API_HostAddress = http://localhost:5207
+
+GET {{CleanMediatR.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
