@@ -28,11 +28,19 @@ namespace CleanMediatR.API.Controllers
             return Ok(result);
         }
 
-        [HttpPut("{employeeId}:int")]
+        [HttpPut("{employeeId:int}")]
         public async Task<IActionResult> UpdateEmployeeByIdAsync([FromRoute] int employeeId, [FromBody] EmployeeEntity employee)
         {
             var result = await sender.Send(new UpdateEmployeeByIdCommand(employeeId, employee));
             return Ok();
         }
+
+        [HttpDelete("{employeeId:int}")]
+        public async Task<IActionResult> DeleteEmployeeById([FromRoute] int employeeId)
+        {
+            var result = await sender.Send(new DeleteEmployeeByIdCommand(employeeId));
+            return Ok(result);
+        }
+
     }
 }
