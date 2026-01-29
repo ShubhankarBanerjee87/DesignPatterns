@@ -32,7 +32,6 @@ namespace CleanMediatR.Infrastructure.Repository
             return false;
         }
 
-
         public async Task<EmployeeEntity> UpdateEmployeeAsync(int employeeId, EmployeeEntity entity)
         {
             EmployeeEntity? employee = _dbContext.Employees.SingleOrDefault(e => e.Id == employeeId);
