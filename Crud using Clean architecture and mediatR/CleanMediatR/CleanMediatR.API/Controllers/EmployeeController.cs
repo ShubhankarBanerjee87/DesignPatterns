@@ -27,5 +27,12 @@ namespace CleanMediatR.API.Controllers
 
             return Ok(result);
         }
+
+        [HttpPut("{employeeId}:int")]
+        public async Task<IActionResult> UpdateEmployeeByIdAsync([FromRoute] int employeeId, [FromBody] EmployeeEntity employee)
+        {
+            var result = await sender.Send(new UpdateEmployeeByIdCommand(employeeId, employee));
+            return Ok();
+        }
     }
 }
