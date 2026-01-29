@@ -6,6 +6,7 @@ namespace CleanMediatR.Application
     {
         public static IServiceCollection AddApplicationDependency(this IServiceCollection services)
         {
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly));
             return services;
         }
     }
